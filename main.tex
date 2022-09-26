@@ -6,11 +6,13 @@
 \usepackage{bohr}
 \usepackage{booktabs}
 \usepackage[font={footnotesize}]{caption}
+\usepackage{chemfig}
 \usepackage{circuitikz}
 \usepackage{elements}
 \usepackage{epsdice}
 \usepackage{etoolbox}
 \usepackage{fontspec}
+%\setmainfont{OpenDyslexic}
 \usepackage{graphicx}
 \usepackage[hang,flushmargin]{footmisc}
 \usepackage{lewis}
@@ -35,7 +37,7 @@
 \usepackage{xcolor}
 
 %\usepackage[T1]{fontenc} %remove if layout is affected.
-\usepackage{tgheros} %only used for a demonstration
+%\usepackage{tgheros} %only used for a demonstration
 
 \pgfplotsset{compat=1.18}
 \captionsetup[table]{name=Example}
@@ -54,6 +56,9 @@
 \newcommand{\ansl}[1]{
 		\ans{#1}
 		\fullwidth{\noindent \color{RoyalBlue} \rule{\textwidth}{1pt}}}
+
+\newcommand*{\Perm}[2]{{}^{#1}\!P_{#2}}%
+\newcommand*{\Comb}[2]{{}^{#1}C_{#2}}%
 
 \lstset{
     language=[LaTeX]TeX,
@@ -196,9 +201,11 @@ You can find many free templates at www.overleaf.com/latex/templates.
 \subsection{\LaTeX\ packages}
 Although \LaTeX\ is useful by itself, the real power comes from the thousands of additions that the community has made to it. Because of its use in academic settings, and the whole open-source movement around early computing, researchers and writers around the wprld have made add-ons for \LaTeX\ and then made them freely available to everyone.
 
-Extending the functions of \LaTeX\ requires some programming. You can program \LaTeX\ using \LaTeX\ as all the work is done by the rendering engine when you create the PDF of a document.
+Extending the functions of \LaTeX\ requires some programming. You can program \LaTeX\ using \LaTeX\ as all the work is done by the rendering engine when you create the PDF of a document. There can be a lot of code and other things needed to provide some of the more complex features and so \LaTeX\ provides a standard way of distributing all the code and other resources needed for an extension to work. It does this by using a package format.
 
-The leading location for \LaTeX\ packages is CTAN, the Comprehensive \TeX\ Archive Network. At the time of writing (September 2022) there are \num{6304} different packages available from over two thousand contributors, and the are pretty much all free.
+Having a way of packaging up functionality is not much use if you're unable to find the packages you need. Once again the universities and open source community has a solution, it came out of a conference held in 1991 after a number of organisations had published separate collections. Now the leading location for \LaTeX\ packages is CTAN, the Comprehensive \TeX\ Archive Network. At the time of writing (September 2022) there are \num{6304} different packages available from over two thousand contributors, and the are pretty much all free.
+
+All of the \LaTeX\ tools know how to use the packages from CTAN (and some other repositories too). Using a package is really simple, you include the command \lstinline|\usepackage{packagename}| in the preamble to your document. Your \LaTeX\ rendering engine will do the rest. As packages change over time, you can specify a defined version for your package by adding \lstinline|[version=x.y]| if needed, but it's better to leave that out and just use the latest version as it probably has the fewest bugs.
 \section{\LaTeX\ for Mathematics}
 \LaTeX\ is probably best known as a way of typesetting mathematics for publications. Software such as MathType or Microsoft Word can be used to add equations to documents using a more graphically friendly method, but underneath the covers, they also use \LaTeX\ to do the work.
 
@@ -219,7 +226,11 @@ The leading location for \LaTeX\ packages is CTAN, the Comprehensive \TeX\ Archi
     \label{tab:mathTypesetting}
 \end{table}
 \subsection{Numbers}
+Of course \LaTeX\ offers great support for including numbers in your document. It turns out there is a wide variety of number types. To make \LaTeX use maths formatting for your numbers and formulae you need to surround them with \lstinline|$ $|. If you forget, numbers and formulae will sometimes look strange.
 \subsubsection{Integers and decimals}
+You can just type a number into your text and it will be fine, especially if it's a line of prose, rather than mathematics. \LaTeX\ however, has the \lstinline|\num{}| command which formats decimal numbers. It has the advantage of applying formatting to the number is an intelligent way, it adds spacing between groups for thousands (but knows not to do it for a 4 digit number), it will match the local conventions for that too. It can also handle scientific notation, and will use an em-dash for negative numbers.
+
+The big advantage that it offers teachers is that if you want to reuse material and change some of the numbers, it will correctly reformat the number if, for example, you change the number of digits.
 \begin{table} [H]
     \centering
     \begin{tabular}{m{0.59\textwidth}m{0.35\textwidth}}
@@ -227,7 +238,13 @@ The leading location for \LaTeX\ packages is CTAN, the Comprehensive \TeX\ Archi
     \LaTeX &   \\
     \addlinespace
     \midrule
-    \begin{lstinline}!\num{29}!\end{lstinline} & $\num{29}$\\
+    \lstinline|\num{29}| & $\num{29}$\\
+    \addlinespace
+    \midrule
+    \lstinline|\num{27068}| & $\num{27068}$\\
+    \addlinespace
+    \midrule
+    \lstinline|\num{3142}| & $\num{3142}$\\
     \addlinespace
     \midrule
     \begin{lstinline}!\num{1234567.890123}!\end{lstinline} & $\num{1234567.890123}$\\
@@ -236,7 +253,7 @@ The leading location for \LaTeX\ packages is CTAN, the Comprehensive \TeX\ Archi
     \begin{lstinline}!\num{-234}!\end{lstinline} & $\num{-234}$\\
     \addlinespace
     \midrule
-    \begin{lstinline}!\num{6.02e28}!\end{lstinline} & $\num{6.02e28}$\\
+    \lstinline|\num{6.02e23}| & $\num{6.02e23}$\\
     \bottomrule
     \end{tabular}
     \caption{Numbers}
@@ -244,6 +261,8 @@ The leading location for \LaTeX\ packages is CTAN, the Comprehensive \TeX\ Archi
 \end{table}
 
 \subsubsection{Fractions}
+\LaTeX\ has two different ways of displaying fractions, \lstinline|\tfrac{}{}| and \lstinline|\dfrac{}{}|. \lstinline|\tfrac{}{}| will shrink the characters in the fraction to make it fit into a single line of text, \lstinline|\dfrac{}{}| will keep the text size the same and expand the height of the line to fit the fraction in. In both cases, the numerator goes into the first set of braces and the denominator into the second set. You can choose whichever command best suits your needs. If you can't decide the \lstinline|\frac{}{}| command will let \LaTeX\ choose whichever it thinks is best.
+
 \begin{table} [H]
     \centering
     \begin{tabular}{m{0.59\textwidth}m{0.35\textwidth}}
@@ -265,6 +284,7 @@ The leading location for \LaTeX\ packages is CTAN, the Comprehensive \TeX\ Archi
 \end{table}
 
 \subsubsection{Complex numbers}
+Complex numbers are pretty straightforward. Just us a lowercase $i$ whenever you need it. One option is to use the \lstinline|\imath| command in place of $i$ as this gives you $\imath$, with the tittle missing.
 \begin{table} [H]
     \centering
     \begin{tabular}{m{0.59\textwidth}m{0.35\textwidth}}
@@ -285,6 +305,11 @@ The leading location for \LaTeX\ packages is CTAN, the Comprehensive \TeX\ Archi
     \label{tab:complex}
 \end{table}
 \subsection{Basic algebra}
+Algebra support in \LaTeX\ is very god, after all it's one of the reasons it was developed. Single line equations can go in almost unchanged. Fractions are handled in the same way as they are for numbers, but I have found it better just to default to using \lstinline|\dfract| so that the text remains a reasonable size.
+
+The \lstinline|\sqrt{}| command can handle higher level roots, just put the number in \lstinline|[ ]| before the braces. Whatever is inside the braces will get the square root sign, regardless of how complex you make it.
+
+Finally, most common mathematical functions have a command equivalent, all this does though is let \LaTeX\ know to set then in normal text, not italicise them like a variable. \lstinline{\cos(\theta)} renders as $\cos(\theta)$ while \lstinline{cos(\theta)} renders as $cos(\theta)$.
 \begin{table} [H]
     \centering
     \begin{tabular}{m{0.59\textwidth}m{0.35\textwidth}}
@@ -304,6 +329,7 @@ The leading location for \LaTeX\ packages is CTAN, the Comprehensive \TeX\ Archi
     \label{tab:basicAlgebra}
 \end{table}
 \subsection{Advanced algebra}
+Integrals, sums, products, and limits can all be set in \LaTeX. The exact order of the elements of can vary, but a quick internet search will give you an answer. Overleaf itself has good documentation, so do most of the \LaTeX applications so help is always at hand.
 \begin{table} [H]
     \centering
     \begin{tabular}{m{0.59\textwidth}m{0.35\textwidth}}
@@ -324,7 +350,8 @@ The leading location for \LaTeX\ packages is CTAN, the Comprehensive \TeX\ Archi
     \label{tab:advancedAlgebra}
 \end{table}
 \subsection{Sets and matrices}
-Set notation and matrices are easily added with \LaTeX.\\
+The special characters used for set notation are all included in \LaTeX, $\cup$ and $\cap$ are \lstinline|\cup| and \lstinline|cap| respectively. There are many more mathematical symbols included, again your \LaTeX\ application or an online search will help.
+
 \begin{table} [H]
         \centering
         \begin{tabular}{m{0.59\textwidth}m{0.35\textwidth}}
@@ -348,6 +375,7 @@ Set notation and matrices are easily added with \LaTeX.\\
         \caption{Sets}
         \label{tab:sets}
 \end{table}
+Similar to the way tables are handled in \LaTeX, matrices and other groups are entered a row at a time, with elements separated by an ampersand, \&, and the row ended with a double backslash \textbackslash \textbackslash. You can choose the type of notation by varying the choice in the \lstinline|\textbackslashbegin{}| and \lstinline|\textbackslashend{}| commands.  Matrices are usually rendered with the elements at normal text size, but the \textbf{smallmatrix} command will squeeze it down so it better fits on a line. If you use \textbf{smallmatrix} you will need to use \lstinline|\big(| and \lstinline|\big)| to get the parentheses around the matrix to be the right size.
 \begin{table} [H]
     \centering
     \begin{tabular}{m{0.59\textwidth}m{0.35\textwidth}}
@@ -418,9 +446,7 @@ The simplest way I have found to make a triangle is to define the three vertices
     \caption{A triangle with tikzpicture}
     \label{tab:simpleTriangle}
 \end{table}
-
-The reason it pays to label the vertices, as in the last example, is because it make adding labels to the triangle very simple.
-
+The reason it pays to label the vertices, as in the last example, is because it make adding labels to the triangle very simple. Segments are identified by the vertices at either end, the order is important, so if the label ends up on the wrong side, just swap the order of the vertices. Angles are identified by the three vertices that make them up, with the labelled vertex in the middle. ``Why not just the middle one alone?'' you may ask. Because having the labels in one order labels the interior angle, if you reverse the order it labels the exterior angle, this is particularly useful if you are using the \lstinline|\tkzMarkAngle{}| command to put an arc on your diagram. In the latest versions of \LaTeX\ it has become the default to include a tick mark on the arc, if you don't want it, just include \lstinline|[mark=none]| before the braces.
 \begin{table} [H]
     \centering
     \begin{tabular}{m{0.61\textwidth}m{0.33\textwidth}}
@@ -460,8 +486,37 @@ The reason it pays to label the vertices, as in the last example, is because it 
 \end{table}
 
 \subsection{Probability}
-Cards and dice are often used in probability questions, and it is more interesting to use a diagram than simply writing ``you roll a 6'' or ``you pick a pair of kings''. Latex offers a way of adding images, just as easily as text.
+The probability you will need to use the information in this section is quite high.
+\subsubsection{Notation}
+If you need to do permuations and combinations a lot, it is easy to define a couple of macros to make rendering them easier. Writing your own \LaTeX\ functions takes a little bit of effort, but you can nearly always find what you want online already.
+
+\begin{lstlisting}
+\newcommand*{\Perm}[2]{{}^{#1}\!P_{#2}}%
+\newcommand*{\Comb}[2]{{}^{#1}C_{#2}}%
+\end{lstlisting}
+
+Now you have two new commands to use in the same way as other \LaTeX\ commands.
+
+\begin{table} [H]
+    \centering
+    \begin{tabular}{m{0.59\textwidth}m{0.35\textwidth}}
+    \toprule
+    \LaTeX \\
+    \addlinespace
+    \midrule
+    \lstinline|\Comb{6}{3}| & $\Comb{6}{3}$\\
+    \addlinespace
+    \midrule
+    \lstinline|\Perm{n}{k}| & $\Perm{n}{k}$\\
+    \bottomrule
+    \end{tabular}
+    \caption{Combinations and permutations}
+    \label{tab:combinations}
+\end{table}
+
 \subsubsection{Dice}
+Cards and dice are often used in probability questions, and it is more interesting to use a diagram than simply writing ``you roll a 6'' or ``you pick a pair of kings''. Latex offers a way of adding images, just as easily as text.
+
 Dice are included in the \texttt{epsdice} package, it can be used to display dice graphically. As the images are small, adding the package \texttt{moresize} allows you to print them bigger.\\
 \begin{table} [H]
     \centering
@@ -913,7 +968,9 @@ Then, using the grid you can work out the position for the \texttt{\textbackslas
     \label{tab:vectorOverlay2}
 \end{table}
 \subsection{Nuclear physics, etc}
+The best package for setting out nuclear physics equations is the package designed for chemistry, \textbf{mhchem}. The four corners of a symbol can each hold a piece of information, the package lets you arrange them easily using the \lstinline|\ce| command. To access the corners on the left, place the annotations before the symbol, to access the corners on the right, place the annotations after the symbol. In both cases, the top corner is selected by putting a caret before the value, the lower corner is chosen by putting an underscore before the value. Also, because it's from a chemistry package \lstinline|\ce| also turns \lstinline|->| into $\ce{->}$.
 
+\lstinline|\ce{^1_2Z^3_4}| becomes $\ce{^1_2Z^3_4}$
 \begin{table} [H]
     \centering
     \begin{tabular}{m{0.55\textwidth}m{0.39\textwidth}}
@@ -921,15 +978,17 @@ Then, using the grid you can work out the position for the \texttt{\textbackslas
     \LaTeX\ \begin{lstinline}!\usepackage{mhchem}!\end{lstinline} &  \\
     \addlinespace
     \midrule
-    \begin{lstinline}!$\ce{^1_1H + ^1_1H -> ^2_1H + e^+ + \nu_e}$!\end{lstinline} & $\ce{^1_1H + ^1_1H -> ^2_1H + e^+ + \nu_e}$\\
-    \begin{lstinline}!$\ce{e^+ + e^- -> {\gamma} + \SI{1.442}{\mega\eV}}$!\end{lstinline} & $\ce{e^+ + e^- -> {\gamma} + \SI{1.442}{\mega\eV}}$\\
-    \begin{lstinline}!$\ce{^2_1H + ^1_1H -> ^3_2He + {\gamma} + \SI{5.493}{\mega\eV}}$!\end{lstinline} & $\ce{^2_1H + ^1_1H -> ^3_2He + {\gamma} + \SI{5.493}{\mega\eV}}$\\
+    \lstinline|$\ce{^1_1H + ^1_1H -> ^2_1H + e^+ + $\nu$_e}$| & $\ce{^1_1H + ^1_1H -> ^2_1H + e^+ + $\nu$_e}$\\    
+    \begin{lstinline}!$\ce{e^+ + e^- -> $\gamma$ + \SI{1.442}{\mega\eV}}$!\end{lstinline} & $\ce{e^+ + e^- -> $\gamma$ + \SI{1.442}{\mega\eV}}$\\
+    \begin{lstinline}!$\ce{^2_1H + ^1_1H -> ^3_2He + $\gamma$ + \SI{5.493}{\mega\eV}}$!\end{lstinline} & $\ce{^2_1H + ^1_1H -> ^3_2He + $\gamma$ + \SI{5.493}{\mega\eV}}$\\
     \bottomrule
     \end{tabular}
     \caption{Nuclear reactions}
     \label{tab:nuclearReactions}
 \end{table}
+Notice that in the expressions that contain Greek letters, you have to surround the code for the Greek letter with \lstinline|$ $|; otherwise, it won't print. This is caused by an interaction between the \textbf{mhchem} package and the standard mathematics font. If you find other characters disappearing, this trick will probably bring them back too.
 
+Along the lines of, ``you can find almost anything in \LaTeX'' is a command that will print out a representation of an atomic nucleus.
 \begin{table} [H]
     \centering
     \begin{tabular}{m{0.74\textwidth}m{0.20\textwidth}}
@@ -1006,7 +1065,7 @@ to[voltmeter] (4.0,-1.5) -- (4.0,0);
 \end{table}	
 \section{\LaTeX\ and Chemistry}
 \subsection{Chemical equations}
-
+We've already seen the \textbf{mhchem} package earlier. The \lstinline|\ce| command allows you to place annotations around larger text, making it perfect for chemical equations, including ionic information too.
 \begin{table} [H]
     \centering
     \begin{tabular}{m{0.40\textwidth}m{0.54\textwidth}}
@@ -1025,6 +1084,7 @@ to[voltmeter] (4.0,-1.5) -- (4.0,0);
 \end{table}
 \subsection{Chemistry diagrams}
 \subsubsection{Lewis structures}
+The \textbf{lewis} package lets you put dots around a symbol representing the electrons in the outer shell.
 \begin{table} [H]
     \centering
     \begin{tabular}{m{0.59\textwidth}m{0.35\textwidth}}
@@ -1046,8 +1106,30 @@ C\,
     \caption{Lewis structures}
     \label{tab:lewisStructures}
 \end{table}
-
+\subsubsection{Molecular diagrams}
+There are a number of packages that have been designed to draw out molecular diagrams. One of the more popular recent packages is \textbf{chemfig} it can draw quite sophisticated diagrams well beyond the needs of high school chemistry. Using it is beyond the scope of this document, but there is a wealth of information, and a complete set of documentation available online. Here's an example.
+\begin{table} [H]
+    \centering
+    \begin{tabular}{m{\textwidth}}
+    \toprule
+    \LaTeX\ \begin{lstinline}!\usepackage{chemfig}!\end{lstinline}\\
+    \addlinespace
+    \midrule
+    \begin{lstlisting}
+\chemfig{CH_3CH_2-[:-60,,3]C(-[:-120]H_3C)=C(-[:-60]H)-[:60]C{(}CH_3{)}_3}
+    \end{lstlisting}\\
+    \begin{center}
+        \chemfig{CH_3CH_2-[:-60,,3]C(-[:-120]H_3C)=C(-[:-60]H)-[:60]C{(}CH_3{)}_3}
+     \end{center}\\
+    \bottomrule
+    \end{tabular}
+    \caption{Molecular structure diagram}
+    \label{tab:molecularStructure}
+\end{table}	
 \subsubsection{The Bohr model}
+The Bohr model of the atom is important in both Chemistry and Physics. The \textbf{bohr} package provides two ways of drawing the electron shells, the simplified method used in Stage 5 Chemistry and the more accurate quantum model used in higher level courses.
+
+In the first example the \textbf{elements} package has been used to add the electron configuration. That package contains many different pieces of information that can be added just by referencing the element name or its symbol. Although all that information is obtainable online, using the package means that if you reuse a question, you can just change the selected element and the other data will update.
 \begin{table} [H]
     \centering
     \begin{tabular}{m{0.69\textwidth}m{0.25\textwidth}}
@@ -1326,11 +1408,62 @@ You can add graph paper grids fairly easily to be used as working area. The \tex
 \end{table}
 
 \section{Accessibility and modifications}
+One of the big advantages of using a markup package such as \LaTeX\ is that you can do conditional rendering. In our case, that means we can create one \LaTeX\ document that can produce a number of different PDFs depending upon our settings. Generally, you want a single flag that will make all the changes needed.
+
+A good example might be in the standardised instructions you use on the front page of an assessment task. For some tasks, a calculator will not be allowed; for others, it will be. One approach might be:
+
+\begin{lstlisting}
+\newcommand{\nocalculator}{} %comment this line if calculators are allowed
+\ifdefined \nocalculator
+    \item You may not use a calculator for this task.
+\else 
+    \item You may use a NESA-approved calculator.
+\fi
+\end{lstlisting}
+
+There are other ways of doing this, but I find this way to be the most straightforward. In practice, it is a good idea to collect all the flags into one section of the document so that they are easy to find.
 \subsection{Conditional modifications}
+I have defined a set of four conditional formatting commands for use when modifying a task. The first allows a block of text to be conditionally highlighted to emphasise important words and phrases, the other three allow content to be modified to be included in only the modified document, only the unmodified document, or alternatives depending on the modification state. All of them are controlled by a single line which is commented out for unmodified copies and included for modified ones.
+\begin{lstlisting}
+\newcommand{\modified}{} % comment this line out for the unmodified version
+
+% Modification formatting
+\newcommand{\modHighlight}[1]{\ifdefined \modified \colorbox{orange!30}{#1} \else #1 \fi}
+\newcommand{\modOnly}[1]{\ifdefined \modified #1 \fi}
+\newcommand{\unmodOnly}[1]{\ifdefined \modified \else #1 \fi}
+\newcommand{\modAlternatives}[2]{\ifdefined \modified #2 \else #1 \fi}
+\end{lstlisting}
+
+Using the \lstinline|\modHighlight{}| command is as simple as including the text which is to be conditionally highlighted in the braces. If modified is on then the text will be highlighted, otherwise it is left unchanged. I use an orange highlight at 30\% opacity, if you would like something different, just change the \lstinline|{orange!30| to something else in the \lstinline|\newcommand{\modHighlight}| line.\textbf{}
+
+\includegraphics[scale=0.6]{Screenshot NoHighlight.png}
+\includegraphics[scale=0.6]{Screenshot Highlight.png}
+
+The \lstinline|\modOnly{}| and \lstinline|\unmodOnly{}| commands both work in the same way. In the braces include the material that should be included in only one version. If adding or omitting material makes a difference to the marking scheme, if you are using the built-in marks with \LaTeX\ the totals will be adjusted automatically and the putput document will be all correct. I think this is one of the best reasons for using \LaTeX\ on anything that has marks associated with it.
+
+The last command \lstinline|\modAlternatives{}{}| takes two sets of content, the first contains the material for the unmodified output, and the second the content for the modified output. Again, if there are different marking implications these will be correctly handled for the different outputs.
 \subsection{Support for alternate fonts}
+Alternate fonts make your work look nicer, but from an accessibility standpoint, they can make the material more accessible. Because of the support PDF viewers give, we don't need to worry too much about font sizes; PDF readers can scale text and diagrams almost indefinitely. What can make a difference, though, is the font itself.
+
+The Open Dyslexic font has been designed to mitigate some of the common problems associated with dyslexia. It is available for free and may help some students with reading the text portions of material. It can easily be applied to a \LaTeX\ document and is simple enough that it can be offered to students with or without a diagnosis of dyslexia.
+
+Firstly you need to add the Open Dyslexic font to your system, which is done in the normal way for your computer. Then adding support for the font is simple. Two commands need to be added to the preamble section of your document.
+\begin{lstlisting}
+\usepackage{fontspec}
+\setmainfont{OpenDyslexic}
+\end{lstlisting}
+
+\includegraphics[scale=0.6]{Screenshot opendyslexic.png}
+
+Using the Open Dyslexic font will only change the text portions of the document; it will not change the material set using the maths functions or other special formatting, such as code listings.
 \subsection{Support for low-vision users}
-\subsubsection{\LaTeX\ out loud}
+As the output from a \LaTeX\ file is a PDF document, a low-vision user can take advantage of the fact that because a PDF is a vector format, it is effectively infinitely scalable, making it very simple to enlarge the document on screen as much as needed. Similarly, a PDB document can be reversed to show white text on a black background. Tools such as Adobe Acrobat can allow even more flexibility with colour changes for text and background.
+
+There are two packages that you need to add to your document's preamble to have it make PDFs for users for whom no visual representation is suitable. The packages are \textbf{accessibility} and \textbf{axessibility}. The first allows you to add alt text to the images in your document. This will be turned into tags in the final PDF which will be accessed by screen reader technologies. You simply add the \lstinline|\alt{description}| tag inside the \lstinline|\figure| tag and the description will go into PDF correctly.
+
+The \textbf{axessibility} package allows for mathematical equations to be read out correctly by a screen reader. To use it, equations have to be surrounded by \lstinline|\begin{equation}| and \lstinline|\end{equation}|, so it's a bit more work. Once you have an accessible file, there are online services that can convert it into an audio file for users who may not be able to use a screen reader.
 \subsubsection{Braille}
+Because it's a PDF, a \LaTeX document can be converted to Braille via an online service such as RoboBraille.org. 
 \section{How do I…}
 This section is made up of all the things that I needed to do to get this paper typeset using \LaTeX\ which aren't covered in other parts of the paper. It's definitely not everything that you'll need to know, but luckily \LaTeX\ has been around for a long time, and as it's open source, there are thousands of pages of information available on the Internet.
 \subsection{How do I change the default text size of my document?}
