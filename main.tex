@@ -575,34 +575,12 @@ Playing cards come from \texttt{pst-poker} package, and can be used to display s
     \inline{\crdKh}
     \inline{\crdAh}\\
     \addlinespace
-    \midrule
-        \begin{lstlisting}
-\newcommand\inhand[3][250pt]{
-    \rotatebox[origin=b]{#2}{
-    \raisebox{#1}{#3}}}
-\setstackgap{L}{0pt} 
-\Longunderstack{
-\inhand{12}{\crdtenc}
-\inhand{6}{\crdJc}
-\inhand{0}{\crdQc}
-\inhand{-6}{\crdKc}
-\inhand{-12}{\crdAc}}
-    \end{lstlisting} &
-    \newcommand\inhand[3][250pt]{\rotatebox[origin=b]{#2}{\raisebox{#1}{#3}}}
-    \setstackgap{L}{0pt} 
-    \Longunderstack{
-    \inhand{12}{\crdtenc}
-    \inhand{6}{\crdJc}
-    \inhand{0}{\crdQc}
-    \inhand{-6}{\crdKc}
-    \inhand{-12}{\crdAc}}\\
+
     \bottomrule
     \end{tabular}
     \caption{Playing cards}
     \label{tab:playingCards}
 \end{table}
-
-
 
 \subsubsection{Venn diagrams}
 
@@ -701,7 +679,7 @@ At its simplest, you can draw a plot with just five lines of text.
 \end{axis}
 \end{tikzpicture}[width=60mm]
     \end{lstlisting} &
-    \begin{tikzpicture}
+\begin{tikzpicture}
     \begin{axis}
         \addplot{x^2};
     \end{axis}
@@ -1423,7 +1401,7 @@ A good example might be in the standardised instructions you use on the front pa
 
 There are other ways of doing this, but I find this way to be the most straightforward. In practice, it is a good idea to collect all the flags into one section of the document so that they are easy to find.
 \subsection{Conditional modifications}
-I have defined a set of four conditional formatting commands for use when modifying a task. The first allows a block of text to be conditionally highlighted to emphasise important words and phrases, the other three allow content to be modified to be included in only the modified document, only the unmodified document, or alternatives depending on the modification state. All of them are controlled by a single line which is commented out for unmodified copies and included for modified ones.
+I have defined a set of four conditional formatting commands for use when modifying a task. The first allows a block of text to be conditionally highlighted to emphasise important words and phrases; the other three allow content to be modified to be included in only the modified document, only the unmodified document, or alternatives depending on the modification state. All of them are controlled by a single line which is commented out for unmodified copies and included for modified ones.
 \begin{lstlisting}
 \newcommand{\modified}{} % comment this line out for the unmodified version
 
@@ -1457,7 +1435,7 @@ Firstly you need to add the Open Dyslexic font to your system, which is done in 
 
 Using the Open Dyslexic font will only change the text portions of the document; it will not change the material set using the maths functions or other special formatting, such as code listings.
 \subsection{Support for low-vision users}
-As the output from a \LaTeX\ file is a PDF document, a low-vision user can take advantage of the fact that because a PDF is a vector format, it is effectively infinitely scalable, making it very simple to enlarge the document on screen as much as needed. Similarly, a PDB document can be reversed to show white text on a black background. Tools such as Adobe Acrobat can allow even more flexibility with colour changes for text and background.
+As the output from a \LaTeX\ file is a PDF document, a low-vision user can take advantage of the fact that because a PDF is a vector format, it is effectively infinitely scalable, making it very simple to enlarge the document on screen as much as needed. Similarly, a PDF document can be reversed to show white text on a black background. Tools such as Adobe Acrobat can allow even more flexibility with colour changes for text and background.
 
 There are two packages that you need to add to your document's preamble to have it make PDFs for users for whom no visual representation is suitable. The packages are \textbf{accessibility} and \textbf{axessibility}. The first allows you to add alt text to the images in your document. This will be turned into tags in the final PDF which will be accessed by screen reader technologies. You simply add the \lstinline|\alt{description}| tag inside the \lstinline|\figure| tag and the description will go into PDF correctly.
 
@@ -1570,6 +1548,10 @@ The table of contents and list of examples that are included at the start of thi
 You can generate cross-references and page references just by adding a label to the document.
 
 \LaTeX\ integrates with pieces of bibliographic software so references can be added to work automatically and in a choice of formats. The paid version also integrates with Dropbox and GitHub.
+\subsection{A final tip}
+Getting everything fitting nicely onto A4 paper can be a challenge if you're expecting to hand everything out. You can spend ages getting it all perfect (and would the student's even notice all the work?) or you can get a pretty reasonable result with a minimum of additional effort.
+
+The \LaTeX\ command \lstinline|\filbreak| is used to tell \LaTeX\ it should start a new page if the material before the next \lstinline|\filbreak| won't fit on the current page. Simply put a \lstinline|\filbreak| command at the end of each question and all will be fine (most of the time).
 \section{Appendices}
 \subsection{Graph paper and writing paper}
 \subsection{Multiple choice answer sheet}
