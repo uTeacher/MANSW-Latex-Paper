@@ -117,16 +117,16 @@ Because you can do almost everything you need within \LaTeX, all your work can b
 
 \LaTeX\ does allow you to embed external files, for example, photographs, but if you're using Overleaf for your work, it automatically attaches a copy of your document to the \LaTeX\ file, so they can't become accidentally separated. Standalone \LaTeX\ editors have the same limitation as other software packages, so it is possible to break links.
 \subsubsection{\LaTeX\ produces PDFs}
-In addition to storing your work in the most common format, \LaTeX\ also has standardised on the way it produces its output. In the early days there were a number of different output formats for \LaTeX\ documents, but since then an industry standard developed, and \LaTeX\ has adopted it.
+In addition to storing your work in the most common format, \LaTeX\ is also standardised on the way it produces its output. In the early days, there were a number of different output formats for \LaTeX\ documents, but since then, an industry standard developed, and \LaTeX\ has adopted it.
 
-In 1992 Adobe developed the Portable Document Format, or PDF. This proved wildly popular and in 2008 it became an international standard ISO 32000. Just like text format used for storing the raw documents, PDF is so widely used, with billions of documents relying on it, it is a safe format to choose to store completed work. PDF documents are supported on every computing platform, and because of legacy considerations, it will be supported long into the future. Adobe still owns the patents for PDFs but they have granted worldwide royalty-free licences to everyone who wants to use it, so there is little chance of the standard disappearing.
+In 1992 Adobe developed the Portable Document Format or PDF. This proved wildly popular and in 2008 it became an international standard ISO 32000. Just like the text format used for storing the raw documents, PDF is so widely used, with billions of documents relying on it, it is a safe format to choose to store completed work. PDF documents are supported on every computing platform, and because of legacy considerations, they will be supported long into the future. Adobe still owns the patents for PDFs but they have granted worldwide royalty-free licences to everyone who wants to use it, so there is little chance of the standard disappearing.
 
-From a teaching point of view, this means that regardless of the device a student might have, they will be able to access your content as a PDF contains all the information needed to display the document, including all the fonts and special characters. With the use of additional tools you can also control access to functions within a PDF, for example you can prevent editing and even copy and pasting if you wish. \LaTeX\ doesn't offer these functions natively, but Adobe and other software producers have solutions.
+From a teaching point of view, this means that regardless of the device a student might have, they will be able to access your content as a PDF contains all the information needed to display the document, including all the fonts and special characters. With the use of additional tools you can also control access to functions within a PDF; for example, you can prevent editing and even copy and paste if you wish. \LaTeX\ doesn't offer these functions natively, but Adobe and other software producers have solutions.
 
 \subsubsection{There is a vast \LaTeX\ community.}
 \LaTeX\ has grown in the academic and open-source communities. This makes it ideally suited for use in schools. As much of the development work for \LaTeX\ and its packages has been done by the higher education community, there are almost no parts of a High School course that are not already covered by someone else's work in the field.
 
-\LaTeX\ is one of the last parts of the Internet that is still largely free to use for anyone, one in which it is common for users to develop their own utilities and solutions and then share them with whomever needs them. Additionally, because of the sheer bulk of material available, the equivalent of internet librarians have developed a cataloguing system that makes finding what you need much simpler. And just like librarians everywhere they have insisted on high standards, so all the packages have proper documentation included with them.
+\LaTeX\ is one of the last parts of the Internet that is still largely free to use for anyone, one in which it is common for users to develop their own utilities and solutions and then share them with whoever needs them. Additionally, because of the sheer bulk of material available, the equivalent of internet librarians have developed a cataloguing system that makes finding what you need much simpler. And just like librarians everywhere they have insisted on high standards, so all the packages have proper documentation included with them.
 
 The Comprehensive \TeX\ Archive Network or CTAN (www.ctan.org) is a treasure trove of useful \LaTeX\ materials, and some fun ones too. Want to write in Klingon, CTAN has /fonts/okuda just for that. Later in this paper when we look at some examples of what \LaTeX\ can do, we'll sample some of these additions.
 \subsubsection{There is a wide variety of tools for working with \LaTeX.}
@@ -140,7 +140,7 @@ A better solution that has emerged is to use an online platform where the compil
 
 There are a number of online \LaTeX\ editors, but the leader is Overleaf\footnote{I have no affiliation with Overleaf, except as a paying customer.}. Overleaf is a fully featured platform that offers all the features needed for full use of \LaTeX. It will allow you to produce very large documents; this paper was produced entirely with Overleaf. Best of all, it's free to use.
 
-The only real limitation on the free access to Overleaf is that there is a limit to how much time your document can take to compile. The free version allows up to one minute, and this is probably long enough for high school-level work. Working with text is quite quick; things get slower the more graphs and graphics you add. This paper takes around 15 to 20 seconds to render each time, and that's with \pageref{LastPage} pages and lots of graphs and tables. The speed is not very dependent on your internet connection speed; most of the time is spent on the Overleaf servers doing the rendering.
+The only real limitation on the free access to Overleaf is that there is a limit to how much time your document can take to compile. The free version allows up to one minute, and this is probably long enough for high school-level work. Working with text is quite quick; things get slower the more graphs and graphics you add. This paper takes around 15 to 20 seconds to render each time, and that's with \pageref{lastpage} pages and lots of graphs and tables. The speed is not very dependent on your internet connection speed; most of the time is spent on the Overleaf servers doing the rendering.
 
 The paid version of Overleaf gives you a four-minute limitation on rendering, and it also adds change tracking so that you can go back to previous versions of your document whenever you need. The paid version also allows multiple users to collaborate on documents. There is no special discount for teachers, but there is student pricing available.
 
@@ -154,7 +154,7 @@ You would think that it would be pretty annoying to have to adjust the font size
 \section{Getting started}
 \LaTeX\ started as a markup language, a language that describes how content will be presented along with the content itself. If you've ever worked with HTML for making web pages, then you've used a markup language. You may also have used Markdown, a markup language for more general use.
 
-Given its organic origins, \LaTeX\ grew within the community rather than being directed from `on high', \LaTeX\ is not always consistent. But you get used to it. One thing that is consistent is that \LaTeX\ commands always begin with a backslash.
+Given its organic origins, \LaTeX\ grew within the community rather than being directed from on high, \LaTeX\ is not always consistent. But you get used to it. One thing that is consistent is that \LaTeX\ commands always begin with a backslash.
 
 Many parts of a \LaTeX\ document are within \texttt{\textbackslash begin ... \textbackslash end} blocks. For example, every \LaTeX\ document starts with \texttt{\textbackslash begin\{document\}} and end with \texttt{\textbackslash end\{document\}}. Likewise, tables, graphs and images all live in these blocks.
 
@@ -199,13 +199,13 @@ The built-in templates are a useful starting point, but an academic community is
 
 You can find many free templates at www.overleaf.com/latex/templates.
 \subsection{\LaTeX\ packages}
-Although \LaTeX\ is useful by itself, the real power comes from the thousands of additions that the community has made to it. Because of its use in academic settings, and the whole open-source movement around early computing, researchers and writers around the wprld have made add-ons for \LaTeX\ and then made them freely available to everyone.
+Although \LaTeX\ is useful by itself, the real power comes from the thousands of additions that the community has made to it. Because of its use in academic settings and the whole open-source movement around early computing, researchers and writers around the world have made add-ons for \LaTeX\ and then made them freely available to everyone.
 
 Extending the functions of \LaTeX\ requires some programming. You can program \LaTeX\ using \LaTeX\ as all the work is done by the rendering engine when you create the PDF of a document. There can be a lot of code and other things needed to provide some of the more complex features and so \LaTeX\ provides a standard way of distributing all the code and other resources needed for an extension to work. It does this by using a package format.
 
-Having a way of packaging up functionality is not much use if you're unable to find the packages you need. Once again the universities and open source community has a solution, it came out of a conference held in 1991 after a number of organisations had published separate collections. Now the leading location for \LaTeX\ packages is CTAN, the Comprehensive \TeX\ Archive Network. At the time of writing (September 2022) there are \num{6304} different packages available from over two thousand contributors, and the are pretty much all free.
+Having a way of packaging up functionality is not much use if you're unable to find the packages you need. Once again, the universities and open source community has a solution, it came out of a conference held in 1991 after a number of organisations had published separate collections. Now the leading location for \LaTeX\ packages is CTAN, the Comprehensive \TeX\ Archive Network. At the time of writing (September 2022), there are \num{6304} different packages available from over two thousand contributors, and they are pretty much all free.
 
-All of the \LaTeX\ tools know how to use the packages from CTAN (and some other repositories too). Using a package is really simple, you include the command \lstinline|\usepackage{packagename}| in the preamble to your document. Your \LaTeX\ rendering engine will do the rest. As packages change over time, you can specify a defined version for your package by adding \lstinline|[version=x.y]| if needed, but it's better to leave that out and just use the latest version as it probably has the fewest bugs.
+All of the \LaTeX\ tools know how to use the packages from CTAN (and some other repositories too). Using a package is really simple; you include the command \lstinline|\usepackage{packagename}| in the preamble to your document. Your \LaTeX\ rendering engine will do the rest. As packages change over time, you can specify a defined version for your package by adding \lstinline|[version=x.y]| if needed, but it's better to leave that out and just use the latest version, as it probably has the fewest bugs.
 \section{\LaTeX\ for Mathematics}
 \LaTeX\ is probably best known as a way of typesetting mathematics for publications. Software such as MathType or Microsoft Word can be used to add equations to documents using a more graphically friendly method, but underneath the covers, they also use \LaTeX\ to do the work.
 
@@ -226,9 +226,9 @@ All of the \LaTeX\ tools know how to use the packages from CTAN (and some other 
     \label{tab:mathTypesetting}
 \end{table}
 \subsection{Numbers}
-Of course \LaTeX\ offers great support for including numbers in your document. It turns out there is a wide variety of number types. To make \LaTeX use maths formatting for your numbers and formulae you need to surround them with \lstinline|$ $|. If you forget, numbers and formulae will sometimes look strange.
+Of course, \LaTeX\ offers great support for including numbers in your document. It turns out there is a wide variety of number types. To make \LaTeX\ use maths formatting for your numbers and formulae, you need to surround them with \lstinline|$ $|. If you forget, numbers and formulae will sometimes look strange.
 \subsubsection{Integers and decimals}
-You can just type a number into your text and it will be fine, especially if it's a line of prose, rather than mathematics. \LaTeX\ however, has the \lstinline|\num{}| command which formats decimal numbers. It has the advantage of applying formatting to the number is an intelligent way, it adds spacing between groups for thousands (but knows not to do it for a 4 digit number), it will match the local conventions for that too. It can also handle scientific notation, and will use an em-dash for negative numbers.
+You can just type a number into your text and it will be fine, especially if it's a line of prose rather than mathematics. \LaTeX\ however, has the \lstinline|\num{}| command which formats decimal numbers. It has the advantage of applying formatting to the number in an intelligent way; it adds spacing between groups for thousands (but knows not to do it for a 4-digit number), and it will match the local conventions for that too. It can also handle scientific notation and will use an em-dash for negative numbers.
 
 The big advantage that it offers teachers is that if you want to reuse material and change some of the numbers, it will correctly reformat the number if, for example, you change the number of digits.
 \begin{table} [H]
@@ -261,7 +261,7 @@ The big advantage that it offers teachers is that if you want to reuse material 
 \end{table}
 
 \subsubsection{Fractions}
-\LaTeX\ has two different ways of displaying fractions, \lstinline|\tfrac{}{}| and \lstinline|\dfrac{}{}|. \lstinline|\tfrac{}{}| will shrink the characters in the fraction to make it fit into a single line of text, \lstinline|\dfrac{}{}| will keep the text size the same and expand the height of the line to fit the fraction in. In both cases, the numerator goes into the first set of braces and the denominator into the second set. You can choose whichever command best suits your needs. If you can't decide the \lstinline|\frac{}{}| command will let \LaTeX\ choose whichever it thinks is best.
+\LaTeX\ has two different ways of displaying fractions, \lstinline|\tfrac{}{}| and \lstinline|\dfrac{}{}|. \lstinline|\tfrac{}{}| will shrink the characters in the fraction to make it fit into a single line of text, \lstinline|\dfrac{}{}| will keep the text size the same and expand the height of the line to fit the fraction in. In both cases, the numerator goes into the first set of braces and the denominator into the second set. You can choose whichever command best suits your needs. If you can't decide, the \lstinline|\frac{}{}| command will let \LaTeX\ choose whichever it thinks is best.
 
 \begin{table} [H]
     \centering
@@ -284,7 +284,7 @@ The big advantage that it offers teachers is that if you want to reuse material 
 \end{table}
 
 \subsubsection{Complex numbers}
-Complex numbers are pretty straightforward. Just us a lowercase $i$ whenever you need it. One option is to use the \lstinline|\imath| command in place of $i$ as this gives you $\imath$, with the tittle missing.
+Complex numbers are pretty straightforward. Just use a lowercase $i$ whenever you need it. One option is to use the \lstinline|\imath| command in place of $i$ as this gives you $\imath$, with the tittle missing.
 \begin{table} [H]
     \centering
     \begin{tabular}{m{0.59\textwidth}m{0.35\textwidth}}
@@ -305,11 +305,11 @@ Complex numbers are pretty straightforward. Just us a lowercase $i$ whenever you
     \label{tab:complex}
 \end{table}
 \subsection{Basic algebra}
-Algebra support in \LaTeX\ is very god, after all it's one of the reasons it was developed. Single line equations can go in almost unchanged. Fractions are handled in the same way as they are for numbers, but I have found it better just to default to using \lstinline|\dfract| so that the text remains a reasonable size.
+Algebra support in \LaTeX\ is very good; after all, it's one of the reasons it was developed. Single line equations can go in almost unchanged. Fractions are handled in the same way as they are for numbers, but I have found it better just to default to using \lstinline|\dfract| so that the text remains a reasonable size.
 
 The \lstinline|\sqrt{}| command can handle higher level roots, just put the number in \lstinline|[ ]| before the braces. Whatever is inside the braces will get the square root sign, regardless of how complex you make it.
 
-Finally, most common mathematical functions have a command equivalent, all this does though is let \LaTeX\ know to set then in normal text, not italicise them like a variable. \lstinline{\cos(\theta)} renders as $\cos(\theta)$ while \lstinline{cos(\theta)} renders as $cos(\theta)$.
+Finally, most common mathematical functions have a command equivalent; all this does though, is let \LaTeX\ know to set them in normal text, not italicise them like a variable. \lstinline{\cos(\theta)} renders as $\cos(\theta)$ while \lstinline{cos(\theta)} renders as $cos(\theta)$.
 \begin{table} [H]
     \centering
     \begin{tabular}{m{0.59\textwidth}m{0.35\textwidth}}
@@ -329,7 +329,7 @@ Finally, most common mathematical functions have a command equivalent, all this 
     \label{tab:basicAlgebra}
 \end{table}
 \subsection{Advanced algebra}
-Integrals, sums, products, and limits can all be set in \LaTeX. The exact order of the elements of can vary, but a quick internet search will give you an answer. Overleaf itself has good documentation, so do most of the \LaTeX applications so help is always at hand.
+Integrals, sums, products, and limits can all be set in \LaTeX. The exact order of the elements of can vary, but a quick internet search will give you an answer. Overleaf itself has good documentation, and so do most of the \LaTeX\ applications, so help is always at hand.
 \begin{table} [H]
     \centering
     \begin{tabular}{m{0.59\textwidth}m{0.35\textwidth}}
@@ -350,7 +350,7 @@ Integrals, sums, products, and limits can all be set in \LaTeX. The exact order 
     \label{tab:advancedAlgebra}
 \end{table}
 \subsection{Sets and matrices}
-The special characters used for set notation are all included in \LaTeX, $\cup$ and $\cap$ are \lstinline|\cup| and \lstinline|cap| respectively. There are many more mathematical symbols included, again your \LaTeX\ application or an online search will help.
+The special characters used for set notation are all included in \LaTeX, $\cup$ and $\cap$ are \lstinline|\cup| and \lstinline|cap| respectively. There are many more mathematical symbols included; again your \LaTeX\ application or an online search will help.
 
 \begin{table} [H]
         \centering
@@ -375,7 +375,7 @@ The special characters used for set notation are all included in \LaTeX, $\cup$ 
         \caption{Sets}
         \label{tab:sets}
 \end{table}
-Similar to the way tables are handled in \LaTeX, matrices and other groups are entered a row at a time, with elements separated by an ampersand, \&, and the row ended with a double backslash \textbackslash \textbackslash. You can choose the type of notation by varying the choice in the \lstinline|\textbackslashbegin{}| and \lstinline|\textbackslashend{}| commands.  Matrices are usually rendered with the elements at normal text size, but the \textbf{smallmatrix} command will squeeze it down so it better fits on a line. If you use \textbf{smallmatrix} you will need to use \lstinline|\big(| and \lstinline|\big)| to get the parentheses around the matrix to be the right size.
+Similar to the way tables are handled in \LaTeX, matrices and other groups are entered a row at a time, with elements separated by an ampersand, \&, and the row ended with a double backslash \textbackslash \textbackslash. You can choose the type of notation by varying the choice in the \lstinline|\textbackslashbegin{}| and \lstinline|\textbackslashend{}| commands.  Matrices are usually rendered with the elements at the normal text size, but the \textbf{smallmatrix} command will squeeze it down, so it better fits on a line. If you use \textbf{smallmatrix}, you will need to use \lstinline|\big(| and \lstinline|\big)| to get the parentheses around the matrix to be the right size.
 \begin{table} [H]
     \centering
     \begin{tabular}{m{0.59\textwidth}m{0.35\textwidth}}
@@ -416,9 +416,9 @@ y & z \end{smallmatrix}\big)
     \label{tab:matrices}
 \end{table}
 \subsection{Geometry}
-Drawing in \LaTeX\ is done using an added package. There are a number available but the most common appears to be \texttt{tikz}. Tikz has a number of extensions for more specialised drawing, but once you get the hang of it, it's very easy to create diagrams for your work, and of course there's the added advantage that there is no chance of losing the file because it was made in some other program.
+Drawing in \LaTeX\ is done using an added package. There is a number available but the most common appears to be \texttt{tikz}. Tikz has a number of extensions for more specialised drawing, but once you get the hang of it, it's very easy to create diagrams for your work, and of course, there's the added advantage that there is no chance of losing the file because it was made in some other program.
 \subsubsection{Triangles}
-Triangles are one of the most studied topics in High School mathematics, luckily \LaTeX\ makes it very simple to make and label triangle diagrams. The \texttt{tkz-euclide} package provides the additional functionality.
+Triangles are one of the most studied topics in High School Mathematics, luckily \LaTeX\ makes it very simple to make and label triangle diagrams. The \texttt{tkz-euclide} package provides the additional functionality.
 
 The simplest way I have found to make a triangle is to define the three vertices and then join them up with a line. There are simpler ways, but this gives the most functionality going forwards.
 
@@ -488,7 +488,7 @@ The reason it pays to label the vertices, as in the last example, is because it 
 \subsection{Probability}
 The probability you will need to use the information in this section is quite high.
 \subsubsection{Notation}
-If you need to do permuations and combinations a lot, it is easy to define a couple of macros to make rendering them easier. Writing your own \LaTeX\ functions takes a little bit of effort, but you can nearly always find what you want online already.
+If you need to do permutations and combinations a lot, it is easy to define a couple of macros to make rendering them easier. Writing your own \LaTeX\ functions takes a little bit of effort, but you can nearly always find what you want online already.
 
 \begin{lstlisting}
 \newcommand*{\Perm}[2]{{}^{#1}\!P_{#2}}%
@@ -536,7 +536,7 @@ Dice are included in the \texttt{epsdice} package, it can be used to display dic
 \end{table}
 
 \subsubsection{Playing cards}
-Playing cards come from \texttt{pst-poker} package, and can be used to display single cards or collections.\\
+Playing cards come from \texttt{pst-poker} package and can be used to display single cards or collections.\\
 \begin{table} [H]
     \centering
     \begin{tabular}{m{0.59\textwidth}m{0.35\textwidth}}
@@ -661,7 +661,7 @@ broccoli};
     \label{tab:annotatedVenn}
 \end{table}
 \subsection{Graphing}
-Unsurprisingly, graphing is well supported in \LaTeX. From simple plots, including bar and column graphs, to more complex 3D graphs, creating anything from a plain to fully annotated graph is straightforward. The package \texttt{pgfplots} provides most of the functionality.
+Unsurprisingly, graphing is well supported in \LaTeX. From simple plots, including bar and column graphs, to more complex 3D graphs, creating anything from a plain to a fully annotated graph is straightforward. The package \texttt{pgfplots} provides most of the functionality.
 
 At its simplest, you can draw a plot with just five lines of text.
 
@@ -1105,9 +1105,9 @@ There are a number of packages that have been designed to draw out molecular dia
     \label{tab:molecularStructure}
 \end{table}	
 \subsubsection{The Bohr model}
-The Bohr model of the atom is important in both Chemistry and Physics. The \textbf{bohr} package provides two ways of drawing the electron shells, the simplified method used in Stage 5 Chemistry and the more accurate quantum model used in higher level courses.
+The Bohr model of the atom is important in both Chemistry and Physics. The \textbf{bohr} package provides two ways of drawing the electron shells, the simplified method used in Stage 5 Chemistry and the more accurate quantum model used in higher-level courses.
 
-In the first example the \textbf{elements} package has been used to add the electron configuration. That package contains many different pieces of information that can be added just by referencing the element name or its symbol. Although all that information is obtainable online, using the package means that if you reuse a question, you can just change the selected element and the other data will update.
+In the first example, the \textbf{elements} package has been used to add the electron configuration. That package contains many different pieces of information that can be added just by referencing the element name or its symbol. Although all that information is obtainable online, using the package means that if you reuse a question, you can just change the selected element and the other data will update.
 \begin{table} [H]
     \centering
     \begin{tabular}{m{0.69\textwidth}m{0.25\textwidth}}
@@ -1280,7 +1280,7 @@ If you want to provide a more structured working environment for students, you c
 \subsubsection{Space for writing}
 If you want to leave blank space for a longer answer, you can just use the \textbf{\textbackslash vspace\{50mm\}} command (adjust the 50mm to suit). This will just leave blank space, or use the \textbf{\textbackslash ans} and \textbf{\textbackslash ansl} commands shown on page \pageref{anslCode} which will add the marks for the question.
 
-The \textbf{\textbackslash rule} command will draw a thin horizontal line the width of the page which is suitable for use as an answer line. \textbf{\textbackslash rule} allows you to specify the length of the line (\textbf{\textbackslash textwidth}) for the full width and the thickness of the line.  Generally, you will combine it with a \textbf{\textbackslash vspace\{\}} command to leave enough space between consecutive lines if you need more than one. You can also colour the lines if you prefer.
+The \textbf{\textbackslash rule} command will draw a thin horizontal line the width of the page, which is suitable for use as an answer line. \textbf{\textbackslash rule} allows you to specify the length of the line (\textbf{\textbackslash textwidth}) for the full width and the thickness of the line.  Generally, you will combine it with a \textbf{\textbackslash vspace\{\}} command to leave enough space between consecutive lines if you need more than one. You can also colour the lines if you prefer.
 \begin{table} [H]
 \begin{tabular}{m{0.97\textwidth}}
     \toprule
@@ -1306,7 +1306,7 @@ The \textbf{\textbackslash rule} command will draw a thin horizontal line the wi
 %\dotline{}
 
 \subsubsection{Space for graphing}
-You can add graph paper grids fairly easily to be used as working area. The \textbf{\textbackslash draw} command lets you adjust the size and spacing and the darkness or lightness of lines. If you need something a bit more complicated, the \texttt{\textbackslash axis} command gives even more choice when you combine it with the grid drawing.
+You can add graph paper grids fairly easily to be used as a working area. The \textbf{\textbackslash draw} command lets you adjust the size and spacing and the darkness or lightness of lines. If you need something a bit more complicated, the \texttt{\textbackslash axis} command gives even more choice when you combine it with the grid drawing.
 \begin{table} [H]
     \centering
     \begin{tabular}{m{\textwidth}}
@@ -1412,18 +1412,18 @@ I have defined a set of four conditional formatting commands for use when modify
 \newcommand{\modAlternatives}[2]{\ifdefined \modified #2 \else #1 \fi}
 \end{lstlisting}
 
-Using the \lstinline|\modHighlight{}| command is as simple as including the text which is to be conditionally highlighted in the braces. If modified is on then the text will be highlighted, otherwise it is left unchanged. I use an orange highlight at 30\% opacity, if you would like something different, just change the \lstinline|{orange!30| to something else in the \lstinline|\newcommand{\modHighlight}| line.\textbf{}
+Using the \lstinline|\modHighlight{}| command is as simple as including the text, which is to be conditionally highlighted in the braces. If modified is on, then the text will be highlighted; otherwise, it is left unchanged. I use an orange highlight at 30\% opacity; if you would like something different, just change the \lstinline|{orange!30| to something else in the \lstinline|\newcommand{\modHighlight}| line.\textbf{}
 
 \includegraphics[scale=0.6]{Screenshot NoHighlight.png}
 \includegraphics[scale=0.6]{Screenshot Highlight.png}
 
-The \lstinline|\modOnly{}| and \lstinline|\unmodOnly{}| commands both work in the same way. In the braces include the material that should be included in only one version. If adding or omitting material makes a difference to the marking scheme, if you are using the built-in marks with \LaTeX\ the totals will be adjusted automatically and the putput document will be all correct. I think this is one of the best reasons for using \LaTeX\ on anything that has marks associated with it.
+The \lstinline|\modOnly{}| and \lstinline|\unmodOnly{}| commands both work in the same way. The braces include the material that should be included in only one version. If adding or omitting material makes a difference to the marking scheme, if you are using the built-in marks with \LaTeX\, the totals will be adjusted automatically, and the output document will be all correct. I think this is one of the best reasons for using \LaTeX\ on anything that has marks associated with it.
 
-The last command \lstinline|\modAlternatives{}{}| takes two sets of content, the first contains the material for the unmodified output, and the second the content for the modified output. Again, if there are different marking implications these will be correctly handled for the different outputs.
+The last command \lstinline|\modAlternatives{}{}| takes two sets of content, the first contains the material for the unmodified output, and the second the content for the modified output. Again, if there are different marking implications, these will be correctly handled for the different outputs.
 \subsection{Support for alternate fonts}
 Alternate fonts make your work look nicer, but from an accessibility standpoint, they can make the material more accessible. Because of the support PDF viewers give, we don't need to worry too much about font sizes; PDF readers can scale text and diagrams almost indefinitely. What can make a difference, though, is the font itself.
 
-The Open Dyslexic font has been designed to mitigate some of the common problems associated with dyslexia. It is available for free and may help some students with reading the text portions of material. It can easily be applied to a \LaTeX\ document and is simple enough that it can be offered to students with or without a diagnosis of dyslexia.
+The Open Dyslexic font has been designed to mitigate some of the common problems associated with dyslexia. It is available for free and may help some students with reading the text portions of the material. It can easily be applied to a \LaTeX\ document and is simple enough that it can be offered to students with or without a diagnosis of dyslexia.
 
 Firstly you need to add the Open Dyslexic font to your system, which is done in the normal way for your computer. Then adding support for the font is simple. Two commands need to be added to the preamble section of your document.
 \begin{lstlisting}
@@ -1472,7 +1472,7 @@ This text uses a different font typeface}
 Which produces:
 {\fontfamily{qhv}\selectfont
 This text uses a different font typeface}\\
-Except that as you can see, it didn't. That's because using this command in a document with a lot of mathematical typesetting causes the maths symbols to be replaced by other characters.
+Except that, as you can see, it didn't. That's because using this command in a document with a lot of mathematical typesetting causes the maths symbols to be replaced by other characters.
 
 If you want to change it for the entire document, you need to add some settings to the document's preamble.
 
@@ -1512,7 +1512,7 @@ For a small amount of text, the easiest thing is to start with \lstinline{\lstin
 If you need a multiline block of code, use \lstinline|\begin{lstlisting}| and \lstinline|\end{lstlisting}| and put the code in between. You can adjust the indenting of the rendered lines in the text by adjusting them within the block. If you are using Overleaf, you will notice that it colours the code text differently to make it easier to identify when you are looking at your work.
 
 \subsection{How do I get a space after using a \LaTeX\ command?}
-By default, when you use a \LaTeX\ command that produces text in amongst other text, it will not leave a space after the command. This might seem strange, but it turns out to be fairly useful. Luckily it is very simple to get \LaTeX\ to leave a space; just add an extra \textbf{\textbackslash} to the end of the \LaTeX\ command.
+By default, when you use a \LaTeX\ command that produces text in other text, it will not leave a space after the command. This might seem strange, but it turns out to be fairly useful. Luckily it is very simple to get \LaTeX\ to leave a space; just add an extra \textbf{\textbackslash} to the end of the \LaTeX\ command.
 \subsection{How do I include a \textbackslash\ in my text?}
 Because the backslash character is used so extensively in \LaTeX\ it can be difficult to get it to print normally. There are all sorts of workarounds, but the simplest is to just use the command \lstinline|\textbackslash| in your text.
 \subsection{How do I add a header or footer?}
@@ -1532,9 +1532,9 @@ The easiest way to get nice paragraph spacing is to include the \texttt{parskip}
 
 in the header section of your document. This will give you paragraphs separated by an empty line and no indenting. It's the style used in this document. Of course, there are lots of other options available as well.
 \subsection{Why are my quote marks wrong?}
-The problem comes from the fact that you are using the standard double quote character on your keyboard to include quotes. Instead, you need to use \space $\grave{}$ \space $\grave{}$ (the key next to the 1, twice) for the leading quotes and ' ' (the key next to the return key, twice) for the trailing quotes. No, I don't know why they did it that way.
+The problem comes from the fact that you are using the standard double quote character on your keyboard to include quotes. So instead, you need to use \space $\grave{}$ \space $\grave{}$ (the key next to the 1, twice) for the leading quotes and ' ' (the key next to the return key, twice) for the trailing quotes. No, I don't know why they did it that way.
 \subsection{How do I add a cross-reference or a page number reference?}\label{cross-reference-location}
-Adding references is a two-part process; the first part is to label the location that you are going to want to cross-reference. This is done by adding a \lstinline|\label{label-name-here}| command to the item being referenced. The name you use for the label needs to be unique throughout the document.
+Adding references is a two-part process; the first part is to label the location you will want to cross-reference. This is done by adding a \lstinline|\label{label-name-here}| command to the item being referenced. The name you use for the label needs to be unique throughout the document.
 
 The second part is to make the reference; the \lstinline|\ref{reference-name}| command is used. That command is being used to create the entry that this section is numbered $\ref{cross-reference-location}$, and it is on page \pageref{cross-reference-location}.
 
@@ -1549,13 +1549,127 @@ You can generate cross-references and page references just by adding a label to 
 
 \LaTeX\ integrates with pieces of bibliographic software so references can be added to work automatically and in a choice of formats. The paid version also integrates with Dropbox and GitHub.
 \subsection{A final tip}
-Getting everything fitting nicely onto A4 paper can be a challenge if you're expecting to hand everything out. You can spend ages getting it all perfect (and would the student's even notice all the work?) or you can get a pretty reasonable result with a minimum of additional effort.
+Getting everything fitting nicely onto A4 paper can be a challenge if you're expecting to hand everything out. You can spend ages getting it all perfect (and would the students even notice all the work?), or you can get a pretty reasonable result with a minimum of additional effort.
 
-The \LaTeX\ command \lstinline|\filbreak| is used to tell \LaTeX\ it should start a new page if the material before the next \lstinline|\filbreak| won't fit on the current page. Simply put a \lstinline|\filbreak| command at the end of each question and all will be fine (most of the time).
+The \LaTeX\ command \lstinline|\filbreak| is used to tell \LaTeX\ it should start a new page if the material before the next \lstinline|\filbreak| won't fit on the current page. Simply put a \lstinline|\filbreak| command at the end of each question, and all will be fine (most of the time).
 \section{Appendices}
-\subsection{Graph paper and writing paper}
 \subsection{Multiple choice answer sheet}
 \label{multipleChoiceSheet}
 This code will generate a block of 4 letter answer lines for multiple choice questions. Change the number in the \lstinline|\def\qCount{20}| command near the end.
-\label{LastPage}
+
+\begin{table} [H]
+    \centering
+    \begin{tabular}{m{0.74\textwidth}m{0.20\textwidth}}
+    \toprule
+    \LaTeX\ \begin{lstinline}!\usepackage{amsmath}!\end{lstinline} & result  \\
+    \addlinespace
+    \midrule
+ {\scriptsize
+	\begin{lstlisting}
+\newcommand{\repeatntimes}[2]{
+   \newcount\i
+   \i=0
+   \newtoks\ans
+   \loop
+      \ans=\expandafter{\the\ans #2}
+      \advance\i by 1
+      \ifnum\i<#1\repeat
+   \the\ans}
+\newcommand{\countRepeatntimes}[2]{
+   \newcount\i
+   \i=0
+   \newtoks\ans
+   \loop
+      \advance\i by 1
+      \ans=\expandafter{\the\ans #2}
+      \ifnum\i<#1\repeat
+   \the\ans}
+\newcounter{problem}
+\newcounter{choice}
+\newcommand{\generateTable}[1]{%
+\countRepeatntimes{#1}{\stepcounter{problem}\makebox[2ex][r]{\theproblem.}%\indent
+\setcounter{choice}{0}%
+\repeatntimes{4}{\stepcounter{choice}\textcolor{black!35}{%
+  \raisebox{0.5pt}{\scalebox{1.0}{\stackinset{c}{}{c}{}{%
+    \scalebox{.6}{\footnotesize \Alph{choice}}}{$\bigcirc$}}}} }\par}}
+\def\sampleblock{%
+  \makebox[5.1ex]{}
+  \stepcounter{choice}\textcolor{black!35}{%
+   \raisebox{-1.5pt}{\scalebox{1.0}{\stackinset{c}{}{c}{}{%
+    \scalebox{.6}{\footnotesize \Alph{choice}}}{$\bigcirc$}}}}
+  \stepcounter{choice}\textcolor{black!35}{%
+   \raisebox{-1.5pt}{\scalebox{1.0}{\stackinset{c}{}{c}{}{%
+    \scalebox{.6}{\footnotesize \Alph{choice}}}{$\bigcirc$}}}}
+  \stepcounter{choice}\textcolor{black!35}{%
+   \smash{\raisebox{-1.5pt}{\scalebox{1.0}{\stackinset{c}{}{c}{-2.5pt}{%
+    \scalebox{8}{\color{black}$\cdot$}}{$\bigcirc$}}}}}
+  \stepcounter{choice}\textcolor{black!35}{%
+   \raisebox{-1.5pt}{\scalebox{1.0}{\stackinset{c}{}{c}{}{%
+    \scalebox{.6}{\footnotesize \Alph{choice}}}{$\bigcirc$}}}}
+\par}
+\voffset=\dimexpr\voffset+.5in
+\textheight=\dimexpr\textheight-.5in
+\def\qCount{20}
+\generateTable{\qCount}
+	\end{lstlisting}} &
+ \newcommand{\repeatntimes}[2]{
+   \newcount\i
+   \i=0
+   \newtoks\ans
+   \loop
+      \ans=\expandafter{\the\ans #2}
+      \advance\i by 1
+      \ifnum\i<#1\repeat
+   \the\ans
+}
+
+\newcommand{\countRepeatntimes}[2]{
+   \newcount\i
+   \i=0
+   \newtoks\ans
+   \loop
+      \advance\i by 1
+      \ans=\expandafter{\the\ans #2}
+      \ifnum\i<#1\repeat
+   \the\ans
+}
+
+\newcounter{problem}
+\newcounter{choice}
+\newcommand{\generateTable}[1]{%
+\countRepeatntimes{#1}{\stepcounter{problem}\makebox[2ex][r]{\theproblem.}%\indent
+\setcounter{choice}{0}%
+\repeatntimes{4}{\stepcounter{choice}\textcolor{black!35}{%
+  \raisebox{0.5pt}{\scalebox{1.0}{\stackinset{c}{}{c}{}{%
+    \scalebox{.6}{\footnotesize \Alph{choice}}}{$\bigcirc$}}}} }\par
+}
+}
+
+\def\sampleblock{%
+  \makebox[5.1ex]{}
+  \stepcounter{choice}\textcolor{black!35}{%
+   \raisebox{-1.5pt}{\scalebox{1.0}{\stackinset{c}{}{c}{}{%
+    \scalebox{.6}{\footnotesize \Alph{choice}}}{$\bigcirc$}}}}
+  \stepcounter{choice}\textcolor{black!35}{%
+   \raisebox{-1.5pt}{\scalebox{1.0}{\stackinset{c}{}{c}{}{%
+    \scalebox{.6}{\footnotesize \Alph{choice}}}{$\bigcirc$}}}}
+  \stepcounter{choice}\textcolor{black!35}{%
+   \smash{\raisebox{-1.5pt}{\scalebox{1.0}{\stackinset{c}{}{c}{-2.5pt}{%
+    \scalebox{8}{\color{black}$\cdot$}}{$\bigcirc$}}}}}
+  \stepcounter{choice}\textcolor{black!35}{%
+   \raisebox{-1.5pt}{\scalebox{1.0}{\stackinset{c}{}{c}{}{%
+    \scalebox{.6}{\footnotesize \Alph{choice}}}{$\bigcirc$}}}}
+\par}
+\voffset=\dimexpr\voffset+.5in
+\textheight=\dimexpr\textheight-.5in
+
+\def\qCount{20}
+\label{lastpage}
+\generateTable{\qCount}\\
+    \bottomrule
+    \end{tabular}
+    \caption{Multiple choice answer sheet}
+    \label{tab:multiChoiceAnswers}
+\end{table}
+
 \end{document}
